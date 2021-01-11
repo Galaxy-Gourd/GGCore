@@ -1,7 +1,7 @@
 {
-  "name": "com.galaxygourd.ggunitycore",
+  "name": "com.galaxygourd.ggcore",
   "version": "1.0.0",
-  "displayName": "GG Unity Core",
+  "displayName": "GG Core",
   "description": "Core GG packages.",
   "unity": "2019.4",
   "author": {
