@@ -1,0 +1,11 @@
+{
+  "name": "com.galaxygourd.ggunityutility",
+  "version": "1.0.0",
+  "displayName": "GG Unity Utility",
+  "description": "Unity utilities.",
+  "unity": "2019.4",
+  "author": {
+    "name": "Galaxy Gourd",
+    "email": "mstephens.dev@gmail.com"
+  }
+}
