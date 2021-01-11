@@ -1,0 +1,9 @@
+[submodule "SharpCore/SharpData"]
+	path = SharpCore/SharpData
+	url = https://mjstephens@github.com/Galaxy-Gourd/SharpData.git
+[submodule "SharpCore/SharpPool"]
+	path = SharpCore/SharpPool
+	url = https://mjstephens@github.com/Galaxy-Gourd/SharpPool.git
+[submodule "SharpCore/SharpTick"]
+	path = SharpCore/SharpTick
+	url = https://mjstephens@github.com/Galaxy-Gourd/SharpTick.git
