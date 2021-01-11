@@ -7,3 +7,21 @@
 [submodule "SharpCore/SharpTick"]
 	path = SharpCore/SharpTick
 	url = https://mjstephens@github.com/Galaxy-Gourd/SharpTick.git
+[submodule "UnityCore/UnityData"]
+	path = UnityCore/UnityData
+	url = https://mjstephens@github.com/Galaxy-Gourd/UnityData.git
+[submodule "UnityCore/UnityPool"]
+	path = UnityCore/UnityPool
+	url = https://mjstephens@github.com/Galaxy-Gourd/UnityPool.git
+[submodule "UnityCore/UnityTick"]
+	path = UnityCore/UnityTick
+	url = https://mjstephens@github.com/Galaxy-Gourd/UnityTick.git
+[submodule "UnityCore/UnityProfiler"]
+	path = UnityCore/UnityProfiler
+	url = https://mjstephens@github.com/Galaxy-Gourd/UnityProfiler.git
+[submodule "UnityCore/UnityUtility"]
+	path = UnityCore/UnityUtility
+	url = https://mjstephens@github.com/Galaxy-Gourd/UnityUtility.git
+[submodule "UnityCore/UnityRoot"]
+	path = UnityCore/UnityRoot
+	url = https://mjstephens@github.com/Galaxy-Gourd/UnityRoot.git
