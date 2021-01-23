@@ -25,3 +25,9 @@
 [submodule "UnityCore/UnityRoot"]
 	path = UnityCore/UnityRoot
 	url = https://mjstephens@github.com/Galaxy-Gourd/UnityRoot.git
+[submodule "SharpCore/SharpTask"]
+	path = SharpCore/SharpTask
+	url = https://mjstephens@github.com/Galaxy-Gourd/SharpTask.git
+[submodule "UnityCore/UnityTask"]
+	path = UnityCore/UnityTask
+	url = https://mjstephens@github.com/Galaxy-Gourd/UnityTask.git
