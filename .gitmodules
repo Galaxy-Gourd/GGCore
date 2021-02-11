@@ -34,3 +34,6 @@
 [submodule "SharpCore/SharpTelemetry"]
 	path = SharpCore/SharpTelemetry
 	url = https://mjstephens@github.com/Galaxy-Gourd/SharpTelemetry.git
+[submodule "UnityCore/UnityLog"]
+	path = UnityCore/UnityLog
+	url = https://mjstephens@github.com/Galaxy-Gourd/UnityLog.git
