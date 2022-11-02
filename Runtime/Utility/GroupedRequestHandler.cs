@@ -4,7 +4,8 @@ namespace GG.Core
 {
     /// <summary>
     /// A GRH can be subscribed to by listeners of type TListener - it will do some processing, then inform listeners of the results. This
-    /// base class helps with grouping and then re-routing results to the correct listeners
+    /// base class helps with grouping and then re-routing results to the correct listeners, as used by Raycaster.cs as well as
+    /// VisionCaster.cs.
     /// </summary>
     public abstract class GroupedRequestHandler<TListener, TRequest> : ITickable
     {
@@ -14,10 +15,22 @@ namespace GG.Core
 
         protected readonly List<TListener> _listeners = new List<TListener>();
         protected readonly List<TRequest> _requests = new List<TRequest>();
+        
         private readonly List<List<int>> _requestMap = new List<List<int>>();
+
         private int _runningTotalRequests;
 
         #endregion VARIABLES
+
+
+        #region CONSTRUCTION
+
+        protected GroupedRequestHandler()
+        {
+            TickRouter.Register(this);
+        }
+
+        #endregion CONSTRUCTION
 
 
         #region SCHEDULE

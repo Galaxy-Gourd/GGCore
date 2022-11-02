@@ -9,7 +9,7 @@ namespace GG.Core
         {
             TickGroup.Input,                    // Ticks the Unity input system
             TickGroup.InputTransmission,        // Forwards collected input data from listeners to receivers
-            
+
             TickGroup.DefaultGroupUpdate
         };
         
@@ -18,7 +18,8 @@ namespace GG.Core
         {
             TickGroup.PhysicsRaycast,           // Ticks the ordered raycast system
             TickGroup.DefaultGroupFixedUpdate, 
-            TickGroup.ControllerHumanoid,
+            TickGroup.ControllerKCC2D,
+            TickGroup.ControllerShip,
             TickGroup.InteractionSystem,
 
             TickGroup.Physics
@@ -29,8 +30,9 @@ namespace GG.Core
         {
             TickGroup.CameraMovement,
             TickGroup.Debug,
+            TickGroup.ViewKCC2D,
             TickGroup.UIUpdate,
-            
+
             TickGroup.DefaultGroupLateUpdate
         };
 

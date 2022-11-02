@@ -9,8 +9,12 @@ namespace GG.Core
         UIUpdate,
         Debug,                  // Ticks debug visualizations
         
+        // KCC2D
+        ControllerKCC2D,
+        ViewKCC2D,
+        
         // App-Specific
-        ControllerHumanoid,
+        ControllerShip,
         CameraMovement,
         PhysicsRaycast,
         VisionCaster,
