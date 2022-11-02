@@ -56,7 +56,7 @@ namespace GG.Core
 
         #region CLEANUP
 
-        internal void DoDestroyForSwap()
+        internal void DoDestroy()
         {
             Destroy(gameObject);
         }

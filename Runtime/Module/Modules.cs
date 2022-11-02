@@ -53,7 +53,7 @@ namespace GG.Core
 
         #region MODULES
 
-        internal static void LoadModules(Module[] modules)
+        public static void LoadModules(Module[] modules)
         {
             // If there are no modules, we still want to call the load complete callback
             if (modules.Length == 0)
@@ -105,7 +105,7 @@ namespace GG.Core
                     return;
                 
                 Debug.Log("Replacing module: " + module.ModuleName);
-                active.DoDestroyForSwap();
+                active.DoDestroy();
             }
 
             Module m = Object.Instantiate(module.gameObject).GetComponent<Module>();
@@ -176,6 +176,22 @@ namespace GG.Core
             }
             OnModulesLoadComplete?.Invoke();
             _hasLoadedForCurrentScene = true;
+        }
+
+        /// <summary>
+        /// Destroys all modules currently loaded
+        /// </summary>
+        public static void DestroyModules()
+        {
+            for (int i = _activeModules.Count - 1; i >= 0; i--)
+            {
+                _activeModules[i].DoDestroy();
+            }
+            
+            // Reset items
+            _activeModules.Clear();
+            _loadchain.Clear();
+            _hasLoadedForCurrentScene = false;
         }
 
         internal static void OnModuleDestroyed(Module m)
