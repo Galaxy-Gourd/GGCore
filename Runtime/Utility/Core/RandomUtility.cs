@@ -2,7 +2,7 @@
 
 using UnityEngine;
 
-namespace GG.Core.Core
+namespace GG.Core
 {
 	public static class RandomUtility
 	{
