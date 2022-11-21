@@ -23,24 +23,26 @@ namespace GG.Core
     {
         private const int k = 30;  // Maximum number of attempts before marking a sample as inactive.
 
-        private readonly Rect rect;
+        private Rect rect;
         private readonly float radius2;  // radius squared
         private readonly float cellSize;
-        private Vector2[,] grid;
-        private  List<Vector2> activeSamples = new List<Vector2>();
+        private readonly Vector2[,] grid;
+        private readonly List<Vector2> activeSamples = new List<Vector2>();
+        private readonly System.Random _random;
 
         /// Create a sampler with the following parameters:
         ///
         /// width:  each sample's x coordinate will be between [0, width]
         /// height: each sample's y coordinate will be between [0, height]
         /// radius: each sample will be at least `radius` units away from any other sample, and at most 2 * `radius`.
-        public PoissonDiscSampler(float width, float height, float radius)
+        public PoissonDiscSampler(float width, float height, float radius, System.Random random)
         {
             rect = new Rect(0, 0, width, height);
             radius2 = radius * radius;
             cellSize = radius / Mathf.Sqrt(2);
             grid = new Vector2[Mathf.CeilToInt(width / cellSize),
                 Mathf.CeilToInt(height / cellSize)];
+            _random = random;
         }
 
         /// Return a lazy sequence of samples. You typically want to call this in a foreach loop, like so:
@@ -48,20 +50,20 @@ namespace GG.Core
         public IEnumerable<Vector2> Samples()
         {
             // First sample is choosen randomly
-            yield return AddSample(new Vector2(Random.value * rect.width, Random.value * rect.height));
+            yield return AddSample(new Vector2((float)_random.NextDouble() * rect.width, (float)_random.NextDouble() * rect.height));
 
-            while (activeSamples.Count > 0) {
-
+            while (activeSamples.Count > 0) 
+            {
                 // Pick a random active sample
-                int i = (int) Random.value * activeSamples.Count;
+                int i = (int) (float)_random.NextDouble() * activeSamples.Count;
                 Vector2 sample = activeSamples[i];
 
                 // Try `k` random candidates between [radius, 2 * radius] from that sample.
                 bool found = false;
                 for (int j = 0; j < k; ++j) {
 
-                    float angle = 2 * Mathf.PI * Random.value;
-                    float r = Mathf.Sqrt(Random.value * 3 * radius2 + radius2); // See: http://stackoverflow.com/questions/9048095/create-random-number-within-an-annulus/9048443#9048443
+                    float angle = 2 * Mathf.PI * (float)_random.NextDouble();
+                    float r = Mathf.Sqrt((float)_random.NextDouble() * 3 * radius2 + radius2); // See: http://stackoverflow.com/questions/9048095/create-random-number-within-an-annulus/9048443#9048443
                     Vector2 candidate = sample + r * new Vector2(Mathf.Cos(angle), Mathf.Sin(angle));
 
                     // Accept candidates if it's inside the rect and farther than 2 * radius to any existing sample.
@@ -74,7 +76,7 @@ namespace GG.Core
 
                 // If we couldn't find a valid candidate after k attempts, remove this sample from the active samples queue
                 if (!found) {
-                    activeSamples[i] = activeSamples[activeSamples.Count - 1];
+                    activeSamples[i] = activeSamples[^1];
                     activeSamples.RemoveAt(activeSamples.Count - 1);
                 }
             }
