@@ -21,6 +21,7 @@ namespace GG.Core
         VisionCaster,
         VisibleObjectBoundsRefresh,
         InteractionSystem,
+        PhysicsDiscoverableSleepTick,
         
         // Defaults
         DefaultGroupUpdate,

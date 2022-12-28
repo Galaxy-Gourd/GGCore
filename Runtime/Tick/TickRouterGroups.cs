@@ -54,6 +54,8 @@ namespace GG.Core
         // These groups are called in order every 0.5 seconds
         private static readonly TickGroup[] _orderedGroupsCSTHalfSecond =
         {
+            TickGroup.PhysicsDiscoverableSleepTick, 
+            
             TickGroup.DefaultGroupHalfSecond
         };
         

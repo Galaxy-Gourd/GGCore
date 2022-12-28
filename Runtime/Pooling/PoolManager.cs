@@ -8,7 +8,7 @@ using UnityEngine;
 namespace GG.Core
 {
     /// <summary>
-    /// Controls runtime instantiation of pooled GameObjects.
+    /// Controls runtime instantiation of pooled objects.
     /// </summary>
     public static class PoolManager
     {
@@ -45,10 +45,19 @@ namespace GG.Core
 
         public static GameObject Pooled(
             GameObject go, 
-            Transform t)
+            Transform t,
+            bool resetLocalValues = true)
         {
             GameObject g = Pooled(go);
             g.transform.SetParent(t);
+
+            if (resetLocalValues)
+            {
+                g.transform.localPosition = Vector3.zero;
+                g.transform.localEulerAngles = Vector3.zero;
+                g.transform.localScale = Vector3.one;
+            }
+            
             g.SetActive(true);
             
             return g;
@@ -251,7 +260,7 @@ namespace GG.Core
                 targetPool = new PoolGameObject
                 {
                     PooledGameObject = go,
-                    PoolLabel = "monoPool_" + go.transform.name
+                    PoolLabel = "[POOL_" + go.transform.name + "]"
                 };
                     
                 _gameObjectPools.Add(targetPool);
