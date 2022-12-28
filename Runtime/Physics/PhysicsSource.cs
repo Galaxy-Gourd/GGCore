@@ -26,7 +26,7 @@ namespace GG.Core
         #region VARIABLES
 
         public TickGroup TickGroup => TickGroup.Physics;
-        private const bool CONST_Use2D = false;
+        private const bool CONST_Use2D = true;
 
         #endregion VARIABLES
 
