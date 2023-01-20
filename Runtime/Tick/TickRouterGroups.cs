@@ -20,6 +20,8 @@ namespace GG.Core
             TickGroup.DefaultGroupFixedUpdate, 
             TickGroup.ControllerHumanoid,
             TickGroup.InteractionSystem,
+            TickGroup.ControllerKCC2D,
+            TickGroup.ControllerShip,
 
             TickGroup.Physics
         };
@@ -30,6 +32,7 @@ namespace GG.Core
             TickGroup.CameraMovement,
             TickGroup.Debug,
             TickGroup.UIUpdate,
+            TickGroup.ViewKCC2D,
             
             TickGroup.DefaultGroupLateUpdate
         };
@@ -53,6 +56,8 @@ namespace GG.Core
         // These groups are called in order every 0.5 seconds
         private static readonly TickGroup[] _orderedGroupsCSTHalfSecond =
         {
+            TickGroup.PhysicsDiscoverableSleepTick, 
+            
             TickGroup.DefaultGroupHalfSecond
         };
         

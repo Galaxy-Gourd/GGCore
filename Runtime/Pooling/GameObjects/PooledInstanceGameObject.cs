@@ -59,7 +59,7 @@ namespace GG.Core.GameObjects
         /// We use "anonymous" disable to allow us to disable the gameObject without the gameobject
         /// being returned to the pool (so that other MonoBehaviour components, such as interpolators,can respond to the OnDisable event).
         /// </summary>
-        public void OnAnonymousDisable()
+        internal void OnAnonymousDisable()
         {
             _anonymousFlag = true;
             gameObject.SetActive(false);
