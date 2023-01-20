@@ -42,13 +42,13 @@ namespace GG.Core
 				switch (axis)
 				{
 					case HoverAxis.X:
-						transform.position = new Vector3 (_originalPos.x + (Mathf.Sin (Time.time * hoverSpeed) * hoverStrength), transform.position.y, transform.position.z);
+						transform.localPosition = new Vector3 (_originalPos.x + (Mathf.Sin (Time.time * hoverSpeed) * hoverStrength), transform.localPosition.y, transform.localPosition.z);
 						break;
 					case HoverAxis.Y:
-						transform.position = new Vector3 (transform.position.x, _originalPos.y + (Mathf.Sin (Time.time * hoverSpeed) * hoverStrength), transform.position.z);
+						transform.localPosition = new Vector3 (transform.localPosition.x, _originalPos.y + (Mathf.Sin (Time.time * hoverSpeed) * hoverStrength), transform.localPosition.z);
 						break;
 					case HoverAxis.Z:
-						transform.position = new Vector3 (transform.position.x, transform.position.y, _originalPos.z + (Mathf.Sin (Time.time * hoverSpeed) * hoverStrength));
+						transform.localPosition = new Vector3 (transform.localPosition.x, transform.localPosition.y, _originalPos.z + (Mathf.Sin (Time.time * hoverSpeed) * hoverStrength));
 						break;
 				}
 			
@@ -63,7 +63,7 @@ namespace GG.Core
 
 		void OnEnable ()
 		{
-			_originalPos = transform.position;
+			_originalPos = transform.localPosition;
 			StartCoroutine ("HoverTick");
 		}
 

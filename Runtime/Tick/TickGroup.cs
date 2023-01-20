@@ -20,6 +20,8 @@ namespace GG.Core
         VisionCaster,
         VisibleObjectBoundsRefresh,
         InteractionSystem,
+        FogOfWarRefresh,
+        DecoratorsObstructionRefresh,
         
         // Defaults
         DefaultGroupUpdate,

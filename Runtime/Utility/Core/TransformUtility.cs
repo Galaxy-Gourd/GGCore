@@ -56,5 +56,45 @@ namespace GG.Core.Core
             }
             return null;
         }
+        
+        public static Rect GetWorldRect(this RectTransform rectTransform)
+        {
+            Vector3[] corners = new Vector3[4];
+            rectTransform.GetWorldCorners(corners);
+            // Get the bottom left corner.
+            Vector3 position = corners[0];
+         
+            Vector2 size = new Vector2(
+                rectTransform.lossyScale.x * rectTransform.rect.size.x,
+                rectTransform.lossyScale.y * rectTransform.rect.size.y);
+ 
+            return new Rect(position, size);
+        }
+        
+        public static Rect RectTransformToScreenSpace(this RectTransform transform)
+        {
+            Vector2 size = Vector2.Scale(transform.rect.size, transform.lossyScale);
+            return new Rect((Vector2)transform.position - (size * 0.5f), size);
+        }
+        
+        public static Rect GetScreenPositionFromRect(this RectTransform rt, Camera camera)
+        {
+            // getting the world corners
+            var corners = new Vector3[4];
+            rt.GetWorldCorners(corners);
+             
+            // getting the screen corners
+            for (var i = 0; i < corners.Length; i++)
+                corners[i] = camera.WorldToScreenPoint(corners[i]);
+             
+            // getting the top left position of the transform
+            var position = (Vector2) corners[1];
+            // inverting the y axis values, making the top left corner = 0.
+            position.y = Screen.height - position.y;
+            // calculate the siz, width and height, in pixle format
+            var size = corners[2] - corners[0];
+             
+            return new Rect(position, size);
+        }
     }
 }

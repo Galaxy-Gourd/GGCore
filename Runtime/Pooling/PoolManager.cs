@@ -45,10 +45,10 @@ namespace GG.Core
 
         public static GameObject Pooled(
             GameObject go, 
-            Transform t)
+            Transform parent)
         {
             GameObject g = Pooled(go);
-            g.transform.SetParent(t);
+            g.transform.SetParent(parent);
             g.SetActive(true);
             
             return g;
@@ -56,7 +56,7 @@ namespace GG.Core
         
         public static GameObject Pooled(
             DataConfigPool data, 
-            Transform t,
+            Transform parent,
             bool updatePoolProperties = true)
         {
             if (updatePoolProperties)
@@ -64,7 +64,7 @@ namespace GG.Core
                 GetAndSetPoolData(data);
             }
             
-            return Pooled(data.PoolObject, t);
+            return Pooled(data.PoolObject, parent);
         }
         
         public static GameObject Pooled(

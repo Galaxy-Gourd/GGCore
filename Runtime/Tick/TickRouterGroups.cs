@@ -21,6 +21,7 @@ namespace GG.Core
             TickGroup.ControllerHumanoid,
             TickGroup.InteractionSystem,
             TickGroup.ControllerKCC2D,
+            TickGroup.ControllerShip,
 
             TickGroup.Physics
         };
@@ -46,13 +47,17 @@ namespace GG.Core
         {
             TickGroup.VisibleObjectBoundsRefresh,
             TickGroup.VisionCaster,
-            
+            TickGroup.FogOfWarRefresh,
+            TickGroup.DecoratorsObstructionRefresh,
+
             TickGroup.DefaultGroupTenthSecond
         };
         
         // These groups are called in order every 0.5 seconds
         private static readonly TickGroup[] _orderedGroupsCSTHalfSecond =
         {
+            TickGroup.PhysicsDiscoverableSleepTick, 
+            
             TickGroup.DefaultGroupHalfSecond
         };
         
