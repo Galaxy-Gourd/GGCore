@@ -44,7 +44,9 @@ namespace GG.Core
         {
             TickGroup.VisibleObjectBoundsRefresh,
             TickGroup.VisionCaster,
-            
+            TickGroup.FogOfWarRefresh,
+            TickGroup.DecoratorsObstructionRefresh,
+
             TickGroup.DefaultGroupTenthSecond
         };
         

@@ -3,7 +3,7 @@ using UnityEngine;
 namespace GG.Core.Data
 {
     [CreateAssetMenu(
-        fileName = "DataPool_",
+        fileName = "DAT_Pool_",
         menuName = "GG/Pooling/Gamebject Pool Data")]
     public class DataConfigPool : DataConfig
     {
