@@ -20,6 +20,7 @@ namespace GG.Core
             TickGroup.DefaultGroupFixedUpdate, 
             TickGroup.ControllerHumanoid,
             TickGroup.InteractionSystem,
+            TickGroup.ControllerKCC2D,
 
             TickGroup.Physics
         };
@@ -30,6 +31,7 @@ namespace GG.Core
             TickGroup.CameraMovement,
             TickGroup.Debug,
             TickGroup.UIUpdate,
+            TickGroup.ViewKCC2D,
             
             TickGroup.DefaultGroupLateUpdate
         };

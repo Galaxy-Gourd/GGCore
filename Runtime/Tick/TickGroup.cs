@@ -9,6 +9,10 @@ namespace GG.Core
         UIUpdate,
         Debug,                  // Ticks debug visualizations
         
+        // KCC2D
+        ControllerKCC2D,        // Ticks physics calcs for KCC2D
+        ViewKCC2D,              // Ticks interpolation for KCC2D view
+        
         // App-Specific
         ControllerHumanoid,
         CameraMovement,
