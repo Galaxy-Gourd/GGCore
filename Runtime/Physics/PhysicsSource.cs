@@ -7,6 +7,8 @@ namespace GG.Core
         #region SINGLETON
 
         private static PhysicsSource _instance;
+        internal static bool True3Dfalse2D = false;
+        
         private void Awake()
         {
             if (_instance == null)
@@ -26,7 +28,6 @@ namespace GG.Core
         #region VARIABLES
 
         public TickGroup TickGroup => TickGroup.Physics;
-        private const bool CONST_Use2D = true;
 
         #endregion VARIABLES
 
@@ -50,7 +51,7 @@ namespace GG.Core
 
         void ITickable.Tick(float delta)
         {
-            if (CONST_Use2D)
+            if (!True3Dfalse2D)
             {
                 Physics2D.Simulate(delta);
             }
